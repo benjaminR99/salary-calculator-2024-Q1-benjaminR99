@@ -16,7 +16,7 @@ const SidebarContainer = styled.div`
   top: 0;
   transition: transform 0.3s ease-in-out;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     transform: ${(props) => (props.open ? 'translateX(0)' : 'translateX(-100%)')};
   }
 `;
