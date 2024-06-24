@@ -7,12 +7,20 @@ import { IoIosArrowBack, IoIosArrowForward, IoIosNotifications, IoIosArrowDown }
 import avatar from '../avatar.jpg'; // Ensure the correct path for the avatar image
 
 const DashboardContainer = styled.div`
-  margin-left: 250px;
-  padding: 20px;
-  width: calc(100% - 250px);
   display: flex;
   flex-wrap: wrap;
+  padding: 20px;
+  /* Adjusted margin-left to prevent sidebar from completely disappearing */
+  margin-left: 250px; 
+  /* Adjust width to take full width when sidebar is hidden */
+  width: calc(100% - 250px); 
+  /* Ensuring responsiveness */
+  @media (max-width: 1200px) {
+    margin-left: 0;
+    width: 100%;
+  }
 `;
+
 
 const Header = styled.header`
   width: 100%;
@@ -46,33 +54,33 @@ const Section = styled.section`
 `;
 
 const TaskListContainer = styled.div`
-  flex: 1;
+  flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis */
   margin-right: 20px;
   margin-bottom: 20px;
   min-width: 300px;
 `;
 
+const ActivityTaskContainer = styled.div`
+  flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis */
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  margin-top: 20px;
+`;
 const TaskListHeader = styled.h4`
   margin-bottom: 10px;
 `;
 
 const TaskList = styled.div`
   width: 100%;
-  max-height: 300px;
   margin-top: 10px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 5px;
   position: relative;
+  padding: 10px; /* Add padding for internal content */
 `;
 
-const ActivityTaskContainer = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
-  
-`;
 
 const ActivityFeed = styled.div`
   width: 100%;
@@ -322,8 +330,9 @@ const Dashboard = () => {
       </WelcomeContainer>
       <Section>
         <TaskListContainer>
-          <TaskListHeader>Tasks</TaskListHeader>
+          
           <TaskList>
+          <TaskListHeader>Tasks</TaskListHeader>
             {displayTasks}
             {renderPagination()}
           </TaskList>
