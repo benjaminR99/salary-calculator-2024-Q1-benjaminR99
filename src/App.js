@@ -16,10 +16,10 @@ const AppContainer = styled.div`
 
 const ToggleButton = styled.button`
   display: none;
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     display: block;
     position: fixed;
-    top: 20px;
+    top: 10px;
     left: 20px;
     z-index: 1000;
     background: none;
