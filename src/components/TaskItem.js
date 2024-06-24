@@ -39,9 +39,9 @@ const TaskItem = ({ task, markAsDone }) => {
         <TaskText>{task.todo}</TaskText>
         <ButtonContainer>
           {task.completed ? (
-            <DoneButton>In-Progress</DoneButton>
+            <DoneButton>Done</DoneButton>
           ) : (
-            <InProgressButton>Done</InProgressButton>
+            <InProgressButton>In-Progress</InProgressButton>
           )}
           <DateContainer>{formattedDate}</DateContainer>
 
